@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# PSA source workbooks are large and redistributable only from the PSA.
+# Generated JSON in data/psgc/ is committed instead.
+data/raw/*
+!data/raw/.gitkeep
