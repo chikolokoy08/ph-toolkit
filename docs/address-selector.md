@@ -30,7 +30,8 @@ region, so `getProvincesByRegion("1300000000")` returns an empty array.
 The same applies to highly urbanized cities elsewhere. City of Cebu, City of
 Baguio, and City of Zamboanga are independent of the provinces around them, so
 their `provinceCode` is `null` and they do not appear in
-`getCitiesByProvince`. There are 48 such cities.
+`getCitiesByProvince`. There are 34 such cities and municipalities: the 17
+in NCR, and 17 highly urbanized cities elsewhere.
 
 Handle both by skipping the province step when a region has no provinces, and
 by listing a region's province-less cities alongside its provinces:
