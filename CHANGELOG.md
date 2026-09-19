@@ -21,6 +21,23 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Mobile numbers and TINs ignore spaces, dashes, dots, and parentheses, so
   input is validated on its digits. Letters and other characters fail.
 - Formatters return `null` on invalid input instead of throwing.
+- `ph-toolkit/address`, a separate entry point carrying the PSGC dataset:
+  lookups by code and by parent, accent-insensitive name search, and
+  `PSGC_VERSION`. Validator-only users do not load the data.
+- `scripts/build-psgc.ts`, which converts the PSA PSGC publication workbook
+  into the compact JSON the address module ships.
+- Provinces carry `isProvince`. It is `false` for the two PSA entries that hold
+  a province code without being provinces, "City of Isabela (Not a Province)"
+  and "Special Geographic Area", which are kept so the places under them stay
+  reachable.
+- Cities carry `parentCityCode`, set for the 14 sub-municipalities of the City
+  of Manila and `null` everywhere else. `getCitiesByRegion` and
+  `getCitiesByProvince` leave sub-municipalities out unless called with
+  `{ includeSubMunicipalities: true }`, `getSubMunicipalitiesByCity` lists
+  them, and `getBarangaysByCity` for the City of Manila returns all 897
+  barangays across its districts.
+- Builds ship without source maps. Most of the address bundle is data, so the
+  maps tripled the package for no debugging value. Output is not minified.
 
 ### Changed
 

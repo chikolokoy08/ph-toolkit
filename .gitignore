@@ -7,3 +7,4 @@ coverage/
 # Generated JSON in data/psgc/ is committed instead.
 data/raw/*
 !data/raw/.gitkeep
+.DS_Store
