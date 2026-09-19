@@ -21,7 +21,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Mobile numbers and TINs ignore spaces, dashes, dots, and parentheses, so
   input is validated on its digits. Letters and other characters fail.
 - Formatters return `null` on invalid input instead of throwing.
-- `ph-toolkit/address`, a separate entry point carrying the PSGC dataset:
+- `@chikolokoy08/ph-toolkit/address`, a separate entry point carrying the PSGC dataset:
   lookups by code and by parent, accent-insensitive name search, and
   `PSGC_VERSION`. Validator-only users do not load the data.
 - `scripts/build-psgc.ts`, which converts the PSA PSGC publication workbook

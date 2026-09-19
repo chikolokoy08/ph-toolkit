@@ -1,11 +1,11 @@
 # Building a cascading address selector
 
 This walks through a region to province to city to barangay dropdown in React,
-using `ph-toolkit/address`. The dataset is bundled and every lookup is
+using `@chikolokoy08/ph-toolkit/address`. The dataset is bundled and every lookup is
 synchronous, so there is nothing to fetch and no loading state.
 
 ```bash
-npm install ph-toolkit
+npm install @chikolokoy08/ph-toolkit
 ```
 
 ## The shape of the data
@@ -41,7 +41,7 @@ import {
   getCitiesByProvince,
   getCitiesByRegion,
   getProvincesByRegion,
-} from "ph-toolkit/address";
+} from "@chikolokoy08/ph-toolkit/address";
 
 function citiesFor(regionCode, provinceCode) {
   if (provinceCode) {
@@ -79,7 +79,7 @@ every other city returns an empty array:
 import {
   getBarangaysByCity,
   getSubMunicipalitiesByCity,
-} from "ph-toolkit/address";
+} from "@chikolokoy08/ph-toolkit/address";
 
 function DistrictStep({ cityCode, districtCode, onChange }) {
   const districts = getSubMunicipalitiesByCity(cityCode);
@@ -161,7 +161,7 @@ import {
   getCitiesByRegion,
   getProvincesByRegion,
   getRegions,
-} from "ph-toolkit/address";
+} from "@chikolokoy08/ph-toolkit/address";
 
 export function AddressSelector({ onChange }) {
   const [regionCode, setRegionCode] = useState("");
@@ -279,7 +279,7 @@ known. Scope the search to the chosen city, which is much faster than searching
 the whole country:
 
 ```js
-import { findBarangaysByName } from "ph-toolkit/address";
+import { findBarangaysByName } from "@chikolokoy08/ph-toolkit/address";
 
 findBarangaysByName(query, { cityCode: "0730600000" });
 ```

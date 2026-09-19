@@ -8,15 +8,21 @@ Zero runtime dependencies. ESM and CJS, with type definitions.
 ## Install
 
 ```bash
-npm install ph-toolkit
+npm install @chikolokoy08/ph-toolkit
 ```
+
+The npm package is scoped. The project, the repository, and everything below
+are still called ph-toolkit.
 
 ## Quick start
 
 Validate and normalize a mobile number:
 
 ```js
-import { formatMobileNumber, isValidMobileNumber } from "ph-toolkit";
+import {
+  formatMobileNumber,
+  isValidMobileNumber,
+} from "@chikolokoy08/ph-toolkit";
 
 isValidMobileNumber("0917 123 4567"); // true
 formatMobileNumber("(0917) 123-4567"); // "+639171234567"
@@ -26,7 +32,7 @@ formatMobileNumber("09171234"); // null
 Format an amount in pesos:
 
 ```js
-import { formatPeso } from "ph-toolkit";
+import { formatPeso } from "@chikolokoy08/ph-toolkit";
 
 formatPeso(1234.5); // "₱1,234.50"
 formatPeso(1234.5, { decimals: 0 }); // "₱1,235"
@@ -40,7 +46,7 @@ import {
   getBarangaysByCity,
   getCitiesByProvince,
   getRegions,
-} from "ph-toolkit/address";
+} from "@chikolokoy08/ph-toolkit/address";
 
 getRegions().length; // 18
 getCitiesByProvince("0702200000").length; // 50, the cities and municipalities of Cebu
@@ -51,7 +57,7 @@ getBarangaysByCity("0730600000").length; // 80, the barangays of City of Cebu
 
 Everything is a named export. There are no default exports.
 
-### `ph-toolkit`
+### `@chikolokoy08/ph-toolkit`
 
 | Export                        | Description                                                                     |
 | ----------------------------- | ------------------------------------------------------------------------------- |
@@ -65,7 +71,7 @@ Everything is a named export. There are no default exports.
 Validators return a boolean. Formatters return `null` on invalid input rather
 than throwing.
 
-### `ph-toolkit/address`
+### `@chikolokoy08/ph-toolkit/address`
 
 | Export                                        | Description                                                                |
 | --------------------------------------------- | -------------------------------------------------------------------------- |
@@ -156,7 +162,7 @@ Browsers get ESM and CJS builds targeting ES2022, with no Node APIs used.
 current browsers.
 
 The address entry point bundles 1.8 MB of JSON. That is the whole point of
-keeping it separate: importing `ph-toolkit` alone costs about 2 KB. Named
+keeping it separate: importing `@chikolokoy08/ph-toolkit` alone costs about 2 KB. Named
 exports and `sideEffects: false` let a bundler drop what you do not use.
 
 ## License

@@ -1,5 +1,5 @@
 {
-  "name": "ph-toolkit",
+  "name": "@chikolokoy08/ph-toolkit",
   "version": "0.1.0",
   "description": "Validators, formatters, and PSGC address data for developers building apps for the Philippines.",
   "keywords": [
@@ -20,6 +20,9 @@
   },
   "author": "Carlo Andro Mabugay",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "sideEffects": false,
   "engines": {

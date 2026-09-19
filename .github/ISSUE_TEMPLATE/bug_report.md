@@ -16,7 +16,7 @@ labels: bug
 
 **Version**
 
-ph-toolkit:
+@chikolokoy08/ph-toolkit:
 Node:
 
 **If this is about address data**

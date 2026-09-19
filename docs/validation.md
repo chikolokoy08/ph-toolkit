@@ -26,7 +26,11 @@ Validate what the user typed, then store what the formatter returns. Storing
 person match.
 
 ```js
-import { formatMobileNumber, formatTin, isValidZipCode } from "ph-toolkit";
+import {
+  formatMobileNumber,
+  formatTin,
+  isValidZipCode,
+} from "@chikolokoy08/ph-toolkit";
 
 const form = document.querySelector("#delivery-form");
 
@@ -75,7 +79,11 @@ number is invalid while they are still on the fourth digit is noise.
 
 ```jsx
 import { useState } from "react";
-import { formatMobileNumber, formatTin, isValidZipCode } from "ph-toolkit";
+import {
+  formatMobileNumber,
+  formatTin,
+  isValidZipCode,
+} from "@chikolokoy08/ph-toolkit";
 
 const MESSAGES = {
   mobile: "Enter a mobile number like 0917 123 4567.",
@@ -196,7 +204,7 @@ const display = stored.replace(/^\+63(\d{3})(\d{3})(\d{4})$/, "0$1 $2 $3");
 `formatPeso` reject anything that is not finite:
 
 ```js
-import { formatPeso } from "ph-toolkit";
+import { formatPeso } from "@chikolokoy08/ph-toolkit";
 
 formatPeso(Number("1234.5")); // "₱1,234.50"
 formatPeso(Number("")); // "₱0.00", because Number("") is 0
