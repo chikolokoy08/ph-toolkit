@@ -62,6 +62,23 @@ const fixture: RawDataset = {
 const index = buildIndex(fixture);
 
 describe("lookups by code", () => {
+  test("getCities leaves out sub-municipalities by default", () => {
+    expect(queries.getCities(index).map((c) => c.name)).toEqual([
+      "Tagbilaran",
+      "Argao",
+      "City of Cebu",
+      "Lone Municipality",
+      "City of Parañaque",
+      "City of Manila",
+    ]);
+  });
+
+  test("getCities can include sub-municipalities", () => {
+    expect(
+      queries.getCities(index, { includeSubMunicipalities: true }),
+    ).toHaveLength(8);
+  });
+
   test("getRegions returns every region", () => {
     expect(queries.getRegions(index).map((region) => region.name)).toEqual([
       "Region VII (Central Visayas)",

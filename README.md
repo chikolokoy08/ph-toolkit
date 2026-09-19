@@ -74,7 +74,7 @@ than throwing.
 | `getProvinces()`                              | All 84 province-level entries.                                             |
 | `getProvinceByCode(code)`                     | One province, or `null`.                                                   |
 | `getProvincesByRegion(regionCode)`            | The provinces of a region. Empty for NCR.                                  |
-| `getCities()`                                 | All 1,656 cities, municipalities, and sub-municipalities.                  |
+| `getCities(options?)`                         | All 1,642 cities and municipalities.                                       |
 | `getCityByCode(code)`                         | One city or municipality, or `null`.                                       |
 | `getCitiesByProvince(provinceCode, options?)` | The cities and municipalities of a province.                               |
 | `getCitiesByRegion(regionCode, options?)`     | Every city and municipality in a region, including those with no province. |
@@ -124,7 +124,8 @@ written in groups.
 
 The address data comes from the Philippine Standard Geographic Code (PSGC),
 published by the Philippine Statistics Authority. This release is built from
-the PSGC publication dated **30 June 2026**, exposed as `PSGC_VERSION`.
+**PSGC 2Q 2026, reference date June 30, 2026, published by PSA on July 13,
+2026**. The reference date is exposed as `PSGC_VERSION`.
 
 It contains 18 regions, 84 province-level entries, 1,656 cities and
 municipalities, and 42,010 barangays.

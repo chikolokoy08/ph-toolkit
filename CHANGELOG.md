@@ -31,13 +31,17 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
   and "Special Geographic Area", which are kept so the places under them stay
   reachable.
 - Cities carry `parentCityCode`, set for the 14 sub-municipalities of the City
-  of Manila and `null` everywhere else. `getCitiesByRegion` and
+  of Manila and `null` everywhere else. `getCities`, `getCitiesByRegion`, and
   `getCitiesByProvince` leave sub-municipalities out unless called with
   `{ includeSubMunicipalities: true }`, `getSubMunicipalitiesByCity` lists
   them, and `getBarangaysByCity` for the City of Manila returns all 897
   barangays across its districts.
 - Builds ship without source maps. Most of the address bundle is data, so the
   maps tripled the package for no debugging value. Output is not minified.
+
+- `data/psgc/meta.json` records only the release, source, source file, and
+  counts, so rebuilding the dataset from an unchanged workbook produces
+  byte-identical files.
 
 ### Changed
 

@@ -1,8 +1,8 @@
 import meta from "../../data/psgc/meta.json";
 
 /**
- * The release date of the PSA PSGC publication this dataset was built from,
- * as YYYY-MM-DD.
+ * The PSGC reference date of the dataset, as YYYY-MM-DD. This release is built
+ * from PSGC 2Q 2026, which the PSA published on 13 July 2026.
  *
  * @example
  * PSGC_VERSION; // "2026-06-30"

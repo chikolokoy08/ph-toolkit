@@ -84,8 +84,11 @@ export function getProvincesByRegion(
   return many(index.provincesByRegion, regionCode);
 }
 
-export function getCities(index: AddressIndex): City[] {
-  return list(index.cities);
+export function getCities(
+  index: AddressIndex,
+  options: CityListOptions = {},
+): City[] {
+  return cityList(list(index.cities), options);
 }
 
 export function getCityByCode(index: AddressIndex, code: string): City | null {

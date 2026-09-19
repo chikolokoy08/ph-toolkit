@@ -2,7 +2,6 @@
   "release": "2026-06-30",
   "source": "Philippine Statistics Authority, Philippine Standard Geographic Code (PSGC)",
   "sourceFile": "PSGC-2Q-2026-Publication-Datafile.xlsx",
-  "generatedAt": "2026-09-18",
   "counts": {
     "regions": 18,
     "provinces": 84,

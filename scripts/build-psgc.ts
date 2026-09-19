@@ -641,7 +641,6 @@ async function main(): Promise<void> {
     release: PSGC_RELEASE_DATE,
     source: SOURCE,
     sourceFile: path.basename(file),
-    generatedAt: new Date().toISOString().slice(0, 10),
     counts: {
       regions: dataset.regions.length,
       provinces: dataset.provinces.length,

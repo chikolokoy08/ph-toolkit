@@ -61,13 +61,15 @@ export function getProvincesByRegion(regionCode: string): Province[] {
 }
 
 /**
- * Returns every city, municipality, and sub-municipality in the country.
+ * Returns every city and municipality in the country. Sub-municipalities are
+ * left out unless you ask for them, so this returns 1,642 entries by default
+ * and 1,656 with the option.
  *
  * @example
- * getCities().filter((city) => city.type === "City").length;
+ * getCities().filter((city) => city.type === "City").length; // 149
  */
-export function getCities(): City[] {
-  return queries.getCities(index);
+export function getCities(options?: CityListOptions): City[] {
+  return queries.getCities(index, options);
 }
 
 /**

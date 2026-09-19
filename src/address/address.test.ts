@@ -35,7 +35,8 @@ describe("dataset", () => {
   test("has every region, province, city, and barangay", () => {
     expect(getRegions()).toHaveLength(18);
     expect(getProvinces()).toHaveLength(84);
-    expect(getCities()).toHaveLength(1656);
+    expect(getCities()).toHaveLength(1642);
+    expect(getCities({ includeSubMunicipalities: true })).toHaveLength(1656);
   });
 
   test("every province belongs to a region that exists", () => {
@@ -45,7 +46,7 @@ describe("dataset", () => {
   });
 
   test("every city belongs to a region, and to a province when it has one", () => {
-    for (const city of getCities()) {
+    for (const city of getCities({ includeSubMunicipalities: true })) {
       expect(getRegionByCode(city.regionCode)).not.toBeNull();
       if (city.provinceCode !== null) {
         expect(getProvinceByCode(city.provinceCode)?.regionCode).toBe(
@@ -64,7 +65,7 @@ describe("dataset", () => {
   });
 
   test("every city is reachable from its region", () => {
-    for (const city of getCities()) {
+    for (const city of getCities({ includeSubMunicipalities: true })) {
       expect(
         getCitiesByRegion(city.regionCode, { includeSubMunicipalities: true }),
       ).toContainEqual(city);
@@ -75,7 +76,7 @@ describe("dataset", () => {
     const codes = [
       ...getRegions().map((region) => region.code),
       ...getProvinces().map((province) => province.code),
-      ...getCities().map((city) => city.code),
+      ...getCities({ includeSubMunicipalities: true }).map((city) => city.code),
     ];
     expect(new Set(codes).size).toBe(codes.length);
   });
@@ -216,6 +217,16 @@ describe("search against the real dataset", () => {
 });
 
 describe("sub-municipalities", () => {
+  test("getCities leaves out sub-municipalities by default", () => {
+    expect(getCities().every((city) => city.type !== "SubMunicipality")).toBe(
+      true,
+    );
+    expect(getCities().map((city) => city.name)).not.toContain("Tondo I/II");
+    expect(
+      getCities({ includeSubMunicipalities: true }).map((city) => city.name),
+    ).toContain("Tondo I/II");
+  });
+
   test("a city list shows the City of Manila but not its districts", () => {
     const names = getCitiesByRegion(NCR).map((city) => city.name);
     expect(names).toContain("City of Manila");
@@ -258,7 +269,9 @@ describe("sub-municipalities", () => {
   test("every other city has no sub-municipalities", () => {
     expect(getSubMunicipalitiesByCity(CITY_OF_CEBU)).toEqual([]);
     expect(
-      getCities().filter((city) => city.parentCityCode !== null),
+      getCities({ includeSubMunicipalities: true }).filter(
+        (city) => city.parentCityCode !== null,
+      ),
     ).toHaveLength(14);
   });
 

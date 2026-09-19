@@ -66,7 +66,7 @@ Binondo, Quiapo, San Nicolas, Santa Cruz, Sampaloc, San Miguel, Ermita,
 Intramuros, Malate, Paco, Pandacan, Port Area, and Santa Ana. The PSA gives
 each one a code, but they are not municipalities.
 
-You do not have to care about this. `getCitiesByRegion` and
+You do not have to care about this. `getCities`, `getCitiesByRegion`, and
 `getCitiesByProvince` leave sub-municipalities out, so Metro Manila lists the
 City of Manila once. And `getBarangaysByCity("1380600000")` returns all 897
 barangays across the districts, so a region to city to barangay cascade works
@@ -109,10 +109,12 @@ function DistrictStep({ cityCode, districtCode, onChange }) {
 const barangays = getBarangaysByCity(districtCode || cityCode);
 ```
 
-To list the districts inline with the cities instead, pass the option:
+To list the districts inline with the cities instead, pass the option. It works
+the same way on `getCities`, `getCitiesByRegion`, and `getCitiesByProvince`:
 
 ```js
 getCitiesByRegion("1300000000", { includeSubMunicipalities: true }); // 31 entries
+getCities({ includeSubMunicipalities: true }).length; // 1656, up from 1642
 ```
 
 ## Entries that hold a province code without being provinces
